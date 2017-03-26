@@ -1,0 +1,67 @@
+*First question came in form of a qr code which was scanned using an Android QR code scanner to revealed a base 64 encoded string which was then decoded into these questions. a python script "q1.py" that demonstrates this is added *
+
+Questions.
+
+Caching
+[Company_X] uses memcached to help optimize the site and reduce load
+on the database.
+a) Briefly describe 3 advantages and 3 disadvantages of using this
+sort of caching.
+b) Describe any other ways you can think of, excluding memory caching,
+to improve the performance of a busy website.
+ 
+APIs
+Releasing functionality as an API has been a common function of Web 2.0 websites and has fuelled the exponential growth of twitter. What functionality do you think company_x could create in API form to improve the quality of it's services
+ 
+Programming
+Given a function that returns a random integer number between 1 and 5, create a function that creates a random integer between 1 and 7.
+Use any language, or write in pseudo code. 
+ 
+Denormalisation
+Describe the benefits of denormalisation on a high traffic web application. Feel free to use examples.
+
+ANSWERS :
+
+Caching :
+
+a) Advantages of Memcache:
+	i) Memcached is cross-platform, meaning that the company_x platform can use Memcached server instances running on different types of servers perfectly with a single written client working with them all.
+
+	ii) Memcached works with any type of Database Management System, It is also free to use with no legal implications.
+
+	iii) It helps reduce READ/WRITE operations to the database, since it would only serve cached instances of objects. Every server instance works independent of the other instances, so if one instance goes down, the others would continue working although all data on the failed instance is lost.
+
+	Disadvantages of Memcached:
+	i) Memcached is volatile. Once a Memcached instance crashes, any data stored during the session is gone and irretrievable.
+
+	ii) Memcached has no inbuilt security/authentication system.
+
+	iii) Solutions/Applications have to be designed with Memcached support in mind.
+
+b) 	i) Serving pre generated static files and
+	using Content Delivery Networks.
+	
+	ii) Minimizing HTTP requests and Minifying Javascript and CSS.
+
+	iii) Avoid unnecessary redirects to other  links.
+
+APIs:
+
+Considering company_x profile, it would be cool if they could release apis to allow people leverage on their services to advertise, find things and with the right security implementations, buy and sell, especially on the mobile (Android/IOS/Windows Phone) platforms.
+
+Programming:
+
+Language of Choice : Python.
+This method for generating random numbers is called the congruential method with a few tweaks of mine.
+Since the question said between 1 and 7, meaning 1 and 7 are excluded.
+
+def genRand(n):
+	#n is any random integer number used as seeder
+	b = ((314*n)+453)%7
+	if b > 1 and b < 7:
+		return b
+	else:
+		return (314*(b)+453)%7
+
+Denormalisation:
+	Denormalisation is based on the idea that redundant/grouped data is faster to read than separate related data thus more efficient. Its major advantage is that it improves data reading from the database. It also permits some change in storage structures or allow some other physical optimization that the Database Management System wouldn't otherwise permit. Denormalization works best of the application frequently accesses computed data. While it enhances the read operation from a Database, it makes the write operation costlier due to the need to write redundant data.
